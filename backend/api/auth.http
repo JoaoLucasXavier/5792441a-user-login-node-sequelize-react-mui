@@ -1,0 +1,13 @@
+
+POST http://localhost:3001/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "john",
+    "password": "123"
+}
+
+###
+
+GET http://localhost:3001 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijp7ImlkIjozLCJuYW1lIjoiSm9obiIsInVzZXJuYW1lIjoiam9obiIsInBhc3N3b3JkIjoiJDJhJDA4JEM2R0t3SlV1ZmNHLnVjSmluaGpTdE90WDY3bW9DeW5LMUI4L05PL1l6TFc5VlljelYzSjZ5IiwiYWN0aXZlIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDIyLTA3LTExVDAyOjA3OjM2LjEzNVoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA3LTExVDAyOjA3OjM2LjEzNVoifSwiZXhwaXJlc0luIjoiN2QiLCJpYXQiOjE2NTc1ODE5NTF9.e4w-3xABMSx7mRJREYGLujmSU_a8XHxy3y4HSevgm6k

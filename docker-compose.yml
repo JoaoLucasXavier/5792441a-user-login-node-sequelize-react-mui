@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: backend-85c4
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    entrypoint: sh -c 'npm install && npm run start'
+    ports:
+      - '3001:3001'
+    networks:
+      - net-85c4
+    volumes:
+      - ./backend:/usr/app
+
+  frontend:
+    container_name: frontend-85c4
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    entrypoint: sh -c 'npm install && npm run start'
+    ports:
+      - '3000:3000'
+    networks:
+      - net-85c4
+    volumes:
+      - ./frontend:/usr/app
+
+  db:
+    container_name: db-85c4
+    image: postgres
+    restart: always
+    volumes:
+      - volume-85c4:/var/lib/postgresql/data
+    networks:
+      - net-85c4
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: passwd
+      POSTGRES_DB: db85c4
+
+networks:
+  net-85c4:
+    driver: bridge
+
+volumes:
+  volume-85c4:
+    driver: local
